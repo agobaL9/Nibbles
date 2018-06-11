@@ -7,7 +7,7 @@ namespace Snake
     public class Snake
     {
         public Rectangle[] Body;
-        private int x = 0, y = 0, width = 10, height = 10;
+        private int x = -0, y = 0, width = 10, height = 10;
 
         public Snake()
         {
@@ -20,9 +20,7 @@ namespace Snake
             for (int i = Body.Length - 1; i > 0;i--)
             {
                 Body[i] = Body[i - 1];
-
             }
-
         }
 
         public void Draw(Graphics graphics)
@@ -30,6 +28,7 @@ namespace Snake
             graphics.FillRectangles(Brushes.Green, Body);
         }
 
+        // 0 = Right, 1 = Down, 2 = Left, 3 = up
         public void Move(int direction)
         {
             Draw();

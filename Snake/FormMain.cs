@@ -6,7 +6,6 @@ namespace Snake
 {
     public partial class FormMain : Form
     {
-
         private int direction = 0;
         private int score = 1;
         private Timer gameLoop = new Timer();
@@ -20,7 +19,7 @@ namespace Snake
             InitializeComponent();
             snake = new Snake();
             food = new Food(rand);
-            gameLoop.Interval = 75;
+            gameLoop.Interval = 75; // ms
             gameLoop.Tick += Update;
         }
 
@@ -57,13 +56,12 @@ namespace Snake
                     if (direction != 1)
                         direction = 3;
                     break;
-
             }
         }
 
         private void FormMain_Paint(object sender, PaintEventArgs e)
         {
-            graphics = this.CreateGraphics();
+            graphics = CreateGraphics();
             snake.Draw(graphics);
             food.Draw(graphics);
         }
@@ -85,9 +83,8 @@ namespace Snake
                     snake.Grow();
                     food.Generate(rand);
                 }
-
-                    this.Invalidate();
-            }
+                    Invalidate();
+        }
 
              void Restart()
             {
@@ -99,6 +96,5 @@ namespace Snake
                 score = 1;
                 lblMenu.Visible = true;
             }
-        
     }
 }

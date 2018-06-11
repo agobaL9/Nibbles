@@ -8,7 +8,6 @@ namespace Snake
         public Rectangle Piece;
         private int x, y, width = 10, height = 10;
 
-
         public Food(Random rand)
         {
             Generate(rand);
@@ -19,7 +18,7 @@ namespace Snake
         {
             Piece.X = x;
             Piece.Y = y;
-            graphics.FillRectangle(Brushes.Brown, Piece);
+            graphics.FillRectangle(Brushes.Red, Piece);
         }
 
         public void Generate(Random rand)
